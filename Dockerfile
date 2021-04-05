@@ -9,7 +9,7 @@ RUN go build
 FROM ${BASE_IMAGE}
 ARG GOCRON_VERSION=0.0.5
 COPY --from=0 /httpd/httpd /httpd
-RUN apk add curl certbot dumb-init strace
+RUN apk add curl certbot dumb-init docker
 RUN curl -L https://github.com/ivoronin/go-cron/releases/download/v${GOCRON_VERSION}/go-cron_${GOCRON_VERSION}_linux_amd64.tar.gz | tar xzf - go-cron
 ADD entrypoint.sh /entrypoint.sh
 ADD certonly.sh /certonly.sh
