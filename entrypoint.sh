@@ -19,7 +19,7 @@ CERTBOT_SCHEDULE="${CERTBOT_SCHEDULE:-0 0 * * *}"
 
 mkdir -p /webroot
 
-strace /httpd &
+/httpd &
 
 /certonly.sh
 
